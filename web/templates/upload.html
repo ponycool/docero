@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Converter</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Convert Document to PDF</h1>
+    <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" name="file" id="fileInput" accept=".doc,.docx,.xls,.xlsx,.ppt,.pptx,.odt,.ods,.odp,.txt,.rtf" required>
+        <input type="submit" value="Upload and Convert" id="submitButton">
+    </form>
+    <div class="spinner" id="loadingSpinner"></div>
+    <div id="responseMessage" class="message" style="display: none;"></div>
+    <a id="downloadLink" class="download-link" style="display: none;"></a>
+</div>
+
+<script src="/static/js/upload.js"></script>
+</body>
+</html>
