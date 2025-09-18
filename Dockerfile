@@ -19,13 +19,20 @@ RUN apk update && \
     # 清理不必要的文件
     rm -rf /var/cache/apk/*
 
-RUN mkdir -p "${APP_PATH}"
+RUN mkdir -p "${APP_PATH}" && \
+    mkdir -p "${APP_PATH}/logs" && \
+    mkdir -p "${APP_PATH}/uploads" && \
+    mkdir -p "${APP_PATH}/converted" && \
+    chmod -R 777 "${APP_PATH}/logs" && \
+    chmod -R 777 "${APP_PATH}/uploads" && \
+    chmod -R 777 "${APP_PATH}/converted"
 
 COPY docero "${APP_PATH}"
+COPY web "${APP_PATH}"
 COPY config "${APP_PATH}"
 
 WORKDIR "${APP_PATH}"
 
 EXPOSE 8080
 
-CMD ["./decero"]
+CMD ["$APP_PATH/docero"]
