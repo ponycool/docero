@@ -21,9 +21,9 @@ build:
   script:
     - make build
   artifacts:
-    name: "task-$CI_PIPELINE_ID"
+    name: "docero-$CI_PIPELINE_ID"
     paths:
-      - task
+      - docero
     expire_in: 1 week
 
 release:
@@ -34,7 +34,7 @@ release:
   dependencies:
     - build
   before_script:
-    - docker login "$CI_REGISTRY_SERVER" -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD"
+    - echo "$CI_REGISTRY_PASSWORD" | docker login "$CI_REGISTRY_SERVER" -u "$CI_REGISTRY_USER" --password-stdin
     # 手动启动 DinD 容器，仅services 配置来启动 Docker-in-Docker无法执行时，使用手动启动DinD 容器
     - CONTAINER_NAME=dind-service
     # 尝试删除容器，如果不存在则忽略错误
