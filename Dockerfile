@@ -35,4 +35,4 @@ WORKDIR "${APP_PATH}"
 
 EXPOSE 8080
 
-CMD ["$APP_PATH/docero"]
+CMD ["/opt/docero/docero"]
