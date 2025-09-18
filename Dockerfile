@@ -21,7 +21,7 @@ RUN apk update && \
 
 RUN mkdir -p "${APP_PATH}"
 
-COPY decero "${APP_PATH}"
+COPY docero "${APP_PATH}"
 COPY config "${APP_PATH}"
 
 WORKDIR "${APP_PATH}"
