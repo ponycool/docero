@@ -10,7 +10,7 @@ run:
 # GOOS=linux GOARCH=amd64 CGO_ENABLED=1 go build -o task main.go
 .PHONY: build
 build:
-	go build -o decero cmd/server/main.go
+	go build -o docero cmd/server/main.go
 
 .PHONY: docker
 docker:
