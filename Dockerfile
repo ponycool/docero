@@ -28,8 +28,8 @@ RUN mkdir -p "${APP_PATH}" && \
     chmod -R 777 "${APP_PATH}/converted"
 
 COPY docero "${APP_PATH}"
-COPY web "${APP_PATH}"
-COPY config "${APP_PATH}"
+COPY web "${APP_PATH}/web"
+COPY config "${APP_PATH}/config"
 
 WORKDIR "${APP_PATH}"
 
